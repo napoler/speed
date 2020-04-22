@@ -13,8 +13,7 @@ layout: default
 http://7.maomihezi.com/speed/
 
 对jsdelivr的域名cdn进行了加速
-
-https://www.jsdelivr.com/?docs=gh
+[jsdelivr](https://www.jsdelivr.com/?docs=gh)
 
 # 使用
 可以对cdn.jsdelivr.net域名下的数据进行加速
