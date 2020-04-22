@@ -10,7 +10,7 @@ layout: default
 
 基本域名：
 
-http://7.maomihezi.com/speed/
+http://7.maomihezi.com/
 
 对jsdelivr的域名cdn进行了加速
 [jsdelivr](https://www.jsdelivr.com/?docs=gh)
@@ -20,7 +20,7 @@ http://7.maomihezi.com/speed/
 ```
 https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js
 # 更改为
-http://7.maomihezi.com/speed/gh/jquery/jquery@3/dist/jquery.min.js
+http://7.maomihezi.com/gh/jquery/jquery@3/dist/jquery.min.js
 ```
 
 
