@@ -1,32 +1,5 @@
-###########
-# site.title, site.author.name
-
-title:  Strange Case of Dr. Jekyll and Mr. Hyde
-author:
-  name: Robert Louis Stevenson
-
-
-########
-# more settings
-
-collections:
-  chapters:
-      output: false
-
-markdown: kramdown
-
-kramdown:
-  auto_ids: true
-
-
-sass:
-  sass_dir: css
-  style:    expanded
-
-
-exclude:
-- README.md
-
-
-safe: true
-lsi: false
+title: Tindex导航
+description: 方便导航
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-dinky

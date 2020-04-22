@@ -1,111 +1,109 @@
-# What's `jekyll-book-theme`?
+# 简单实用导航
 
-It's another Jekyll static site generator theme for classic books
-(e.g. Strange Case of Dr. Jekyll and Mr Hyde, A Tale of Two Cities, The Trial, etc.)
-that is, a ready-to-fork template pack.
+[![Build Status](https://travis-ci.org/pages-themes/dinky.svg?branch=master)](https://travis-ci.org/pages-themes/dinky) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-dinky.svg)](https://badge.fury.io/rb/jekyll-theme-dinky)
 
-For example:
+*Dinky is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/dinky), or even [use it today](#usage).*
 
+![Thumbnail of Dinky](thumbnail.png)
+
+## Usage
+
+To use the Dinky theme:
+
+1. Add the following to your site's `_config.yml`:
+
+    ```yml
+    theme: jekyll-theme-dinky
+    ```
+
+2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
+
+    ```ruby
+    gem "github-pages", group: :jekyll_plugins
+    ```
+
+## Customizing
+
+### Configuration variables
+
+Dinky will respect the following variables, if set in your site's `_config.yml`:
+
+```yml
+title: [The title of your site]
+description: [A short description of your site's purpose]
 ```
-├── _config.yml                               # book configuration
-├── _chapters                                 # sample chapters
-|   ├── 01.md
-|   ├── 02.md
-|   ├── ...
-|   └── 10.md
-├── _layouts                           
-|   └── default.html                   # master layout template
-├── css                               
-|   ├── _settings.scss                 # style settings (e.g. variables)
-|   └── style.scss                     # master style page
-└── index.html                         # all-in-one page book template
+
+Additionally, you may choose to set the following optional variables:
+
+```yml
+show_downloads: ["true" or "false" to indicate whether to provide a download URL]
+google_analytics: [Your Google Analytics tracking ID]
 ```
 
-will result in an all-in-one book page:
+### Stylesheet
 
-```
-└── _site                                # output build folder; site gets generated here
-    ├── css
-    |   └── style.css                    # styles for pages (copied 1:1 as is)
-    └── index.html                       # all-in-one book page
-```
+If you'd like to add your own custom styles:
 
-## How-to Build Your Own Book
+1. Create a file called `/assets/css/style.scss` in your site
+2. Add the following content to the top of the file, exactly as shown:
+    ```scss
+    ---
+    ---
 
-### Step 1: Add your chapters to the `_chapters/` folder
+    @import "{{ site.theme }}";
+    ```
+3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
 
-Replace all text files in the `_chapters` folder with your own.
+*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
 
+### Layouts
 
-### Step 2: Add the book title and author in the `_config.yml` file
+If you'd like to change the theme's HTML layout:
 
-Next change the book title and author in the `_config.yml` file:
+1. [Copy the original template](https://github.com/pages-themes/dinky/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
+2. Create a file called `/_layouts/default.html` in your site
+3. Paste the default layout content copied in the first step
+4. Customize the layout as you'd like
 
-~~~
-title:  Strange Case of Dr. Jekyll and Mr. Hyde
-author:
-  name: Robert Louis Stevenson
-~~~
+### Overriding GitHub-generated URLs
 
-with your own book title and author name. That's it. Happy reading.
+Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
 
-### Live Demo
+1. Look at [the template source](https://github.com/pages-themes/dinky/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
+2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
+    ```yml
+    github:
+      zip_url: http://example.com/download.zip
+      another_url: another value
+    ```
+3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
 
-See a live demo @ [`henrythemes.github.io/jekyll-book-theme` »](http://henrythemes.github.io/jekyll-book-theme)
+*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
 
+For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
 
-### More Themes
+## Roadmap
 
-See the [Dr. Jekyll's Themes](https://drjekyllthemes.github.io) directory.
+See the [open issues](https://github.com/pages-themes/dinky/issues) for a list of proposed features (and known issues).
 
-### More Quick Starter Wizard Scripts
+## Project philosophy
 
-See the [Mr. Hyde's Scripts](https://github.com/mrhydescripts/scripts) library.
+The Dinky theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
 
+## Contributing
 
+Interested in contributing to Dinky? We'd love your help. Dinky is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
 
-## Example Classic
+### Previewing the theme locally
 
-### Strange Case of Dr. Jekyll and Mr. Hyde
+If you'd like to preview the theme locally (for example, in the process of proposing a change):
 
-by Robert Louis Stevenson
+1. Clone down the theme's repository (`git clone https://github.com/pages-themes/dinky`)
+2. `cd` into the theme's directory
+3. Run `script/bootstrap` to install the necessary dependencies
+4. Run `bundle exec jekyll serve` to start the preview server
+5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
 
-> Mr. Utterson the lawyer was a man of a rugged countenance, that was
-> never lighted by a smile; cold, scanty and embarrassed in
-> discourse; backward in sentiment; lean, long, dusty, dreary, and
-> yet somehow lovable.
+### Running tests
 
-<!--
-  note: fix anchors; not-generated by kramdown (auto-ids set to true) why?
-  -->
-
-- [Story of the Door](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/01.md)
-- [Search for Mr. Hyde](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/02.md)
-- [Dr. Jekyll was Quite at Ease](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/03.md)
-- [The Carew Murder Case](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/04.md)
-- [Incident of the Letter](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/05.md)
-- [Remarkable Incident of Dr. Lanyon](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/06.md)
-- [Incident at the Window](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/07.md)
-- [The Last Night](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/08.md) 
-- [Dr. Lanyon's Narrative](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/09.md)
-- [Henry Jekyll's Full Statement of the Case](http://henrythemes.github.io/jekyll-book-theme/#) - [(Source)](_chapters/10.md)
-
-
-
-### More Free World Classics in Plain Text (.txt)
-
-- [worldclassics @ GitHub](https://github.com/worldclassics) - more ready-to-use free world (literature) classics e.g. The Trial by Franz Kafka, etc.
-- [Project Gutenberg](https://www.gutenberg.org) - the world's biggest free classics book library in plain text; more than 40,000+ books collected since 1971 
-
-
-
-## Meta
-
-**License**
-
-The theme is dedicated to the public domain.
-Use it as you please with no restrictions whatsoever.
-
-**Questions? Comments?**
-
-Post them to the [wwwmake forum](http://groups.google.com/group/wwwmake). Thanks!
+The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.
