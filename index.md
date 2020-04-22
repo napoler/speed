@@ -12,4 +12,16 @@ layout: default
 
 http://7.maomihezi.com/speed/
 
+对jsdelivr的域名cdn进行了加速
+
+https://www.jsdelivr.com/?docs=gh
+
+# 使用
+```
+https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js
+# 更改为
+http://7.maomihezi.com/speed/gh/jquery/jquery@3/dist/jquery.min.js
+```
+
+
 
