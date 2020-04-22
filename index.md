@@ -17,6 +17,7 @@ http://7.maomihezi.com/speed/
 https://www.jsdelivr.com/?docs=gh
 
 # 使用
+可以对cdn.jsdelivr.net域名下的数据进行加速
 ```
 https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js
 # 更改为
